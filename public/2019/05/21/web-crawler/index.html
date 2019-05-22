@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.4" />
+
+
+<title>web crawler  - A Hugo website</title>
+<meta property="og:title" content="web crawler  - A Hugo website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">web crawler </h1>
+
+    
+    <span class="article-date">2019-05-21</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="section" class="section level1">
+<h1>爬取链家网</h1>
+<p><a href="https://cd.lianjia.com/ershoufang/" class="uri">https://cd.lianjia.com/ershoufang/</a>
+rm(list=ls())
+library(“xml2”)
+library(“rvest”)
+library(“dplyr”)
+library(“stringr”)
+i&lt;-1
+house_inf&lt;-data.frame()
+for (i in 1:300){
+web&lt;- read_html(paste(“<a href="http://cd.lianjia.com/ershoufang/pg/d" class="uri">http://cd.lianjia.com/ershoufang/pg/d</a>”,i,sep="“),encoding=”UTF-8")</p>
+<p>house_tag&lt;-web%&gt;%html_nodes(“div.info-table”)%&gt;%html_text()
+# overallprice
+house_p &lt;- web%&gt;%html_nodes(“span.total-price”)%&gt;%html_text()</p>
+<p>house_tag &lt;- gsub(“,”“,house_tag)
+house_tag &lt;- gsub(”“,”“,house_tag)
+#size
+house_size&lt;-str_split_fixed(house_tag,” +\|“,7)[,1]
+#housetype &lt;- gsub(”“,”“,housetype)
+#location
+house_loc&lt;-str_split_fixed(house_tag,” +\|“,7)[,3]
+#price_unit
+house_unitprice&lt;-str_split_fixed(house_tag,” +\|“,7)[,4]
+house_unitprice &lt;- gsub(”.<em>单价“,”“,house_unitprice)
+house_unitprice &lt;- gsub(”元/平“,”“,house_unitprice)
+#m
+house_m&lt;-str_split_fixed(house_tag,” +\|“,7)[,2]
+house_m &lt;- gsub(”平.</em>“,”“,house_m)
+#level
+house_level &lt;- str_split_fixed(house_tag,” +\|“,7)[,2]
+house_level &lt;- gsub(”.<em>区/“,”“,house_level)
+house_level &lt;- gsub(”层.</em>“,”",house_level)</p>
+<p>house&lt;-data_frame(house_p,house_size,house_loc,house_unitprice,house_m,house_level)
+house_inf&lt;-rbind(house_inf,house)</p>
+<p>}</p>
+<p>#将数据写入csv文档
+write.csv(house_inf,file=“house_inf.csv”)</p>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

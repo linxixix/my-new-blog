@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A Hugo website</title>
+    <link>/</link>
+    <description>Recent content on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>web crawler </title>
+      <link>/2019/05/21/web-crawler/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/21/web-crawler/</guid>
+      <description>爬取链家网https://cd.lianjia.com/ershoufang/rm(list=ls())library(“xml2”)library(“rvest”)library(“dplyr”)library(“stringr”)i&amp;lt;-1house_inf&amp;lt;-data.frame()for (i in 1:300){web&amp;lt;- read_html(paste(“http://cd.lianjia.com/ershoufang/pg/d”,i,sep=&#34;“),encoding=”UTF-8&#34;)
+house_tag&amp;lt;-web%&amp;gt;%html_nodes(“div.info-table”)%&amp;gt;%html_text()# overallpricehouse_p &amp;lt;- web%&amp;gt;%html_nodes(“span.total-price”)%&amp;gt;%html_text()
+house_tag &amp;lt;- gsub(“,”“,house_tag)house_tag &amp;lt;- gsub(”“,”“,house_tag)#sizehouse_size&amp;lt;-str_split_fixed(house_tag,” +\|“,7)[,1]#housetype &amp;lt;- gsub(”“,”“,housetype)#locationhouse_loc&amp;lt;-str_split_fixed(house_tag,” +\|“,7)[,3]#price_unithouse_unitprice&amp;lt;-str_split_fixed(house_tag,” +\|“,7)[,4]house_unitprice &amp;lt;- gsub(”.单价“,”“,house_unitprice)house_unitprice &amp;lt;- gsub(”元/平“,”“,house_unitprice)#mhouse_m&amp;lt;-str_split_fixed(house_tag,” +\|“,7)[,2]house_m &amp;lt;- gsub(”平.“,”“,house_m)#levelhouse_level &amp;lt;- str_split_fixed(house_tag,” +\|“,7)[,2]house_level &amp;lt;- gsub(”.区/“,”“,house_level)house_level &amp;lt;- gsub(”层.“,”&#34;,house_level)
+house&amp;lt;-data_frame(house_p,house_size,house_loc,house_unitprice,house_m,house_level)house_inf&amp;lt;-rbind(house_inf,house)
+}
+#将数据写入csv文档write.csv(house_inf,file=“house_inf.csv”)
+</description>
+    </item>
+    
+    <item>
+      <title>A Plain Markdown Post</title>
+      <link>/2016/12/30/a-plain-markdown-post/</link>
+      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
+      
+      <guid>/2016/12/30/a-plain-markdown-post/</guid>
+      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
+ You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/2015/07/23/hello-r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/2015/07/23/hello-r-markdown/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>Lorem Ipsum</title>
+      <link>/2015/01/01/lorem-ipsum/</link>
+      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
+      
+      <guid>/2015/01/01/lorem-ipsum/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+    </item>
+    
+  </channel>
+</rss>
