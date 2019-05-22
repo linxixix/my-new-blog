@@ -25,7 +25,7 @@ f<-f[order(f[2],decreasing=TRUE),]
 
 ```{r}
 library(wordcloud2)
-f2<-f2[1:150,]     
-wordcloud2(f2, size = 0.8 ,shape='star') 
+f<-f[1:150,]     
+wordcloud2(f, size = 0.8 ,shape='star') 
 ```
 
