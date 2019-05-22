@@ -9,6 +9,8 @@ tags: []
 ---
 # 爬取链家网
 https://cd.lianjia.com/ershoufang/
+
+```{r}
 rm(list=ls()) 
 library("xml2") 
 library("rvest") 
@@ -16,9 +18,10 @@ library("dplyr")
 library("stringr") 
 i<-1 
 house_inf<-data.frame() 
-for (i in 1:300){ 
+for (i in 1:300)
 web<- read_html(paste("http://cd.lianjia.com/ershoufang/pg/d",i,sep=""),encoding="UTF-8")
 
+```
 house_tag<-web%>%html_nodes("div.info-table")%>%html_text()
 # overallprice
 house_p <- web%>%html_nodes("span.total-price")%>%html_text()
@@ -49,6 +52,7 @@ house_inf<-rbind(house_inf,house)
 
 #将数据写入csv文档
 write.csv(house_inf,file="house_inf.csv")
+
 
 
 
