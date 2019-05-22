@@ -7,53 +7,25 @@ categories:
   - R
 tags: []
 ---
-# 爬取链家网
-https://cd.lianjia.com/ershoufang/
 
 ```{r}
-rm(list=ls()) 
-library("xml2") 
-library("rvest") 
-library("dplyr") 
-library("stringr") 
-i<-1 
-house_inf<-data.frame() 
-for (i in 1:300)
-web<- read_html(paste("http://cd.lianjia.com/ershoufang/pg/d",i,sep=""),encoding="UTF-8")
-
+library(rvest)
+url<-'http://www.gov.cn/guowuyuan/2019-03/16/content_5374314.htm'
+web<-read_html(url,encoding="utf-8") 
+position<-web %>% html_nodes("div.pages_content") %>% html_text()
 ```
-house_tag<-web%>%html_nodes("div.info-table")%>%html_text()
-# overallprice
-house_p <- web%>%html_nodes("span.total-price")%>%html_text()
 
-house_tag <- gsub("\t","",house_tag)
-house_tag <- gsub("\n","",house_tag)
-#size
-house_size<-str_split_fixed(house_tag," +\\|",7)[,1]
-#housetype <- gsub("\n","",housetype)
-#location
-house_loc<-str_split_fixed(house_tag," +\\|",7)[,3]
-#price_unit
-house_unitprice<-str_split_fixed(house_tag," +\\|",7)[,4]
-house_unitprice <- gsub(".*单价","",house_unitprice)
-house_unitprice <- gsub("元/平","",house_unitprice)
-#m
-house_m<-str_split_fixed(house_tag," +\\|",7)[,2]
-house_m <- gsub("平.*","",house_m)
-#level
-house_level <- str_split_fixed(house_tag," +\\|",7)[,2]
-house_level <- gsub(".*区/","",house_level)
-house_level <- gsub("层.*","",house_level)
+```{r}
+library(jiebaR)
+engine_s<-worker(stop_word = "stopwords.txt")
+seg<-segment(position,engine_s)
+f<-freq(seg)
+f<-f[order(f[2],decreasing=TRUE),] 
+```
 
-house<-data_frame(house_p,house_size,house_loc,house_unitprice,house_m,house_level)
-house_inf<-rbind(house_inf,house)
-
-}
-
-#将数据写入csv文档
-write.csv(house_inf,file="house_inf.csv")
-
-
-
-
+```{r}
+library(wordcloud2)
+f2<-f2[1:150,]     
+wordcloud2(f2, size = 0.8 ,shape='star') 
+```
 

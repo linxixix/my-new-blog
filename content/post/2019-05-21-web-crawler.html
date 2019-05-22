@@ -398,10 +398,9 @@ library(&quot;dplyr&quot;) </code></pre>
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
 <pre class="r"><code>library(&quot;stringr&quot;) 
-i&lt;-1 
-house_inf&lt;-data.frame() 
-for (i in 1:300)
-web&lt;- read_html(paste(&quot;http://cd.lianjia.com/ershoufang/pg/d&quot;,i,sep=&quot;&quot;),encoding=&quot;UTF-8&quot;)</code></pre>
+i&lt;-1 </code></pre>
+<pre class="r"><code>house_inf&lt;-data.frame() </code></pre>
+<p>for (i in 1:300) web&lt;- read_html(paste(“<a href="http://cd.lianjia.com/ershoufang/pg/d" class="uri">http://cd.lianjia.com/ershoufang/pg/d</a>”,i,sep=&quot;“),encoding=”UTF-8&quot;)</p>
 <p>house_tag&lt;-web%&gt;%html_nodes(“div.info-table”)%&gt;%html_text() # overallprice house_p &lt;- web%&gt;%html_nodes(“span.total-price”)%&gt;%html_text()</p>
 <p>house_tag &lt;- gsub(“,”“,house_tag) house_tag &lt;- gsub(”“,”“,house_tag) #size house_size&lt;-str_split_fixed(house_tag,” +\|“,7)[,1] #housetype &lt;- gsub(”“,”“,housetype) #location house_loc&lt;-str_split_fixed(house_tag,” +\|“,7)[,3] #price_unit house_unitprice&lt;-str_split_fixed(house_tag,” +\|“,7)[,4] house_unitprice &lt;- gsub(”.<em>单价“,”“,house_unitprice) house_unitprice &lt;- gsub(”元/平“,”“,house_unitprice) #m house_m&lt;-str_split_fixed(house_tag,” +\|“,7)[,2] house_m &lt;- gsub(”平.</em>“,”“,house_m) #level house_level &lt;- str_split_fixed(house_tag,” +\|“,7)[,2] house_level &lt;- gsub(”.<em>区/“,”“,house_level) house_level &lt;- gsub(”层.</em>“,”&quot;,house_level)</p>
 <p>house&lt;-data_frame(house_p,house_size,house_loc,house_unitprice,house_m,house_level) house_inf&lt;-rbind(house_inf,house)</p>
