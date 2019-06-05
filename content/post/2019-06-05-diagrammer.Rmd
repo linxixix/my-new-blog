@@ -46,4 +46,27 @@ tab1 -> tab2 -> tab3 -> tab4 -> tab5;
 ")
 
 ```
+```{r}
+grViz("digraph flowchart {
+      # node definitions with substituted label text
+      node [fontname = Helvetica, shape = rectangle]        
+      tab1 [label = '@@1']
+      tab2 [label = '@@2']
+      tab3 [label = '@@3']
+      tab4 [label = '@@4']
+      tab5 [label = '@@5']
+
+      # edge definitions with the node IDs
+      tab1 -> tab2;
+      tab2 -> tab3;
+      tab2 -> tab4 -> tab5
+      }
+
+      [1]: '今天天气很好'
+      [2]: '天气好我的心情会好吗'
+      [3]: '心情好会好好学习'
+      [4]: '心情不好会不想学习'
+      [5]: '不想学习会挂科然后心情继续不好'
+      ")
+```
 

@@ -22,6 +22,15 @@ R语言中基于低水平绘图设备（仅能绘制基本图形）library(grid
     </item>
     
     <item>
+      <title>ggplot2</title>
+      <link>/2019/06/05/ggplot2/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/05/ggplot2/</guid>
+      <description>做散点图，红色大小为4.使用了两层。library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlangggplot(airquality,aes(Wind,Temp)) + geom_point(col=&amp;quot;red&amp;quot;,alpha=0.4,size=4)每个月份对应一个颜色，数据对应到颜色上面，需要加上aes函数ggplot(airquality,aes(Wind,Temp)) + geom_point(aes(color=factor(Month)),alpha=0.4,size=5)</description>
+    </item>
+    
+    <item>
       <title>food</title>
       <link>/2019/05/22/food/</link>
       <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>

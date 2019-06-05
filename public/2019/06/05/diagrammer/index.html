@@ -62,7 +62,7 @@
 
   <article class="article">
     
-    <span class="article-duration">1 min read</span>
+    <span class="article-duration">2 min read</span>
     
 
     <h1 class="article-title">DiagrammeR</h1>
@@ -121,6 +121,29 @@ tab1 -&gt; tab2 -&gt; tab3 -&gt; tab4 -&gt; tab5;
 &quot;)</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="grViz html-widget"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"digraph flowchart {\n# node definitions with substituted label text\nnode [fontname = Helvetica, shape = rectangle] \ntab1 [label = \"七点半起床\"]\ntab2 [label = \"八点出门吃早餐\"]\ntab3 [label = \"八点二十到图书馆开始学习\"]\ntab4 [label = \"十二点离开图书馆吃饭并午休半小时\"]\ntab5 [label = \"下午继续学习\"]\n# edge definitions with the node IDs\ntab1 -> tab2 -> tab3 -> tab4 -> tab5;\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>grViz(&quot;digraph flowchart {
+      # node definitions with substituted label text
+      node [fontname = Helvetica, shape = rectangle]        
+      tab1 [label = &#39;@@1&#39;]
+      tab2 [label = &#39;@@2&#39;]
+      tab3 [label = &#39;@@3&#39;]
+      tab4 [label = &#39;@@4&#39;]
+      tab5 [label = &#39;@@5&#39;]
+
+      # edge definitions with the node IDs
+      tab1 -&gt; tab2;
+      tab2 -&gt; tab3;
+      tab2 -&gt; tab4 -&gt; tab5
+      }
+
+      [1]: &#39;今天天气很好&#39;
+      [2]: &#39;天气好我的心情会好吗&#39;
+      [3]: &#39;心情好会好好学习&#39;
+      [4]: &#39;心情不好会不想学习&#39;
+      [5]: &#39;不想学习会挂科然后心情继续不好&#39;
+      &quot;)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"今天天气很好\"]\n      tab2 [label = \"天气好我的心情会好吗\"]\n      tab3 [label = \"心情好会好好学习\"]\n      tab4 [label = \"心情不好会不想学习\"]\n      tab5 [label = \"不想学习会挂科然后心情继续不好\"]\n\n      # edge definitions with the node IDs\n      tab1 -> tab2;\n      tab2 -> tab3;\n      tab2 -> tab4 -> tab5\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
