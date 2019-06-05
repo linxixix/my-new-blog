@@ -1,0 +1,60 @@
+---
+title: DiagrammeR
+author: linxi
+date: '2019-06-05'
+slug: diagrammer
+categories:
+  - R
+tags: []
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/viz/viz.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/grViz-binding/grViz.js"></script>
+
+
+<div id="r" class="section level2">
+<h2>R语言绘制流程图</h2>
+<p>R语言为用户提供了大量的绘图函数，包括基于图形语法的ggplot2和传统绘图包等。</p>
+<div id="r-1" class="section level3">
+<h3>R语言中基于低水平绘图设备（仅能绘制基本图形）</h3>
+<pre class="r"><code>library(grid)
+grid.roundrect(width=0.25, height=0.25)
+grid.text(&quot;四川大学&quot;)
+pushViewport(viewport(width=0.25,height=0.125))
+grid.roundrect()
+grid.text(&quot;四川大学&quot;, x=unit(3,&quot;mm&quot;), y=unit(2,&quot;lines&quot;), just=&quot;left&quot;)
+grid.text(&quot;公共管理学院&quot;, x=unit(2,&quot;mm&quot;), y=unit(0.5,&quot;lines&quot;), just=&quot;left&quot;)
+popViewport()</code></pre>
+<p><img src="/post/2019-06-05-diagrammer_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="r-2" class="section level3">
+<h3>通过R建立流程图</h3>
+<pre class="r"><code>library(DiagrammeR)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
+<pre class="r"><code>grViz(&quot;digraph flowchart {
+# node definitions with substituted label text
+node [fontname = Helvetica, shape = rectangle] 
+tab1 [label = &#39;@@1&#39;]
+tab2 [label = &#39;@@2&#39;]
+tab3 [label = &#39;@@3&#39;]
+tab4 [label = &#39;@@4&#39;]
+tab5 [label = &#39;@@5&#39;]
+# edge definitions with the node IDs
+tab1 -&gt; tab2 -&gt; tab3 -&gt; tab4 -&gt; tab5;
+}
+[1]: &#39;七点半起床&#39;
+[2]: &#39;八点出门吃早餐&#39;
+[3]: &#39;八点二十到图书馆开始学习&#39;
+[4]: &#39;十二点离开图书馆吃饭并午休半小时&#39;
+[5]: &#39;下午继续学习&#39;
+&quot;)</code></pre>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"digraph flowchart {\n# node definitions with substituted label text\nnode [fontname = Helvetica, shape = rectangle] \ntab1 [label = \"七点半起床\"]\ntab2 [label = \"八点出门吃早餐\"]\ntab3 [label = \"八点二十到图书馆开始学习\"]\ntab4 [label = \"十二点离开图书馆吃饭并午休半小时\"]\ntab5 [label = \"下午继续学习\"]\n# edge definitions with the node IDs\ntab1 -> tab2 -> tab3 -> tab4 -> tab5;\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>

@@ -6,10 +6,30 @@
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DiagrammeR</title>
+      <link>/2019/06/05/diagrammer/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/05/diagrammer/</guid>
+      <description>R语言绘制流程图R语言为用户提供了大量的绘图函数，包括基于图形语法的ggplot2和传统绘图包等。
+R语言中基于低水平绘图设备（仅能绘制基本图形）library(grid)grid.roundrect(width=0.25, height=0.25)grid.text(&amp;quot;四川大学&amp;quot;)pushViewport(viewport(width=0.25,height=0.125))grid.roundrect()grid.text(&amp;quot;四川大学&amp;quot;, x=unit(3,&amp;quot;mm&amp;quot;), y=unit(2,&amp;quot;lines&amp;quot;), just=&amp;quot;left&amp;quot;)grid.text(&amp;quot;公共管理学院&amp;quot;, x=unit(2,&amp;quot;mm&amp;quot;), y=unit(0.5,&amp;quot;lines&amp;quot;), just=&amp;quot;left&amp;quot;)popViewport()通过R建立流程图library(DiagrammeR)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlanggrViz(&amp;quot;digraph flowchart {# node definitions with substituted label textnode [fontname = Helvetica, shape = rectangle] tab1 [label = &amp;#39;@@1&amp;#39;]tab2 [label = &amp;#39;@@2&amp;#39;]tab3 [label = &amp;#39;@@3&amp;#39;]tab4 [label = &amp;#39;@@4&amp;#39;]tab5 [label = &amp;#39;@@5&amp;#39;]# edge definitions with the node IDstab1 -&amp;gt; tab2 -&amp;gt; tab3 -&amp;gt; tab4 -&amp;gt; tab5;}[1]: &amp;#39;七点半起床&amp;#39;[2]: &amp;#39;八点出门吃早餐&amp;#39;[3]: &amp;#39;八点二十到图书馆开始学习&amp;#39;[4]: &amp;#39;十二点离开图书馆吃饭并午休半小时&amp;#39;[5]: &amp;#39;下午继续学习&amp;#39;&amp;quot;){&#34;</description>
+    </item>
+    
+    <item>
+      <title>food</title>
+      <link>/2019/05/22/food/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/22/food/</guid>
+      <description>肥宅快乐水 肥宅快乐水，网络流行词，该词指的是“可乐”，而被称为“肥宅快乐水”是因为它可以给肥宅群体带来快乐，并且可以让肥宅保持真正的肥宅必备的属性“肥”。
+海底捞火锅 太喜欢吃海底捞啦，上周去体验了一下财富中心店的海底捞，还是一如既往的好吃😊点了一个双人套餐，然后加了半份肥牛，还没有吃完。午餐肉好好吃，扯面好好玩，番茄汤好好喝😁最后还送了我两包火锅底料，开心</description>
+    </item>
     
     <item>
       <title>web crawler </title>
@@ -17,13 +37,7 @@
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/05/21/web-crawler/</guid>
-      <description>爬取链家网https://cd.lianjia.com/ershoufang/rm(list=ls())library(“xml2”)library(“rvest”)library(“dplyr”)library(“stringr”)i&amp;lt;-1house_inf&amp;lt;-data.frame()for (i in 1:300){web&amp;lt;- read_html(paste(“http://cd.lianjia.com/ershoufang/pg/d”,i,sep=&#34;“),encoding=”UTF-8&#34;)
-house_tag&amp;lt;-web%&amp;gt;%html_nodes(“div.info-table”)%&amp;gt;%html_text()# overallpricehouse_p &amp;lt;- web%&amp;gt;%html_nodes(“span.total-price”)%&amp;gt;%html_text()
-house_tag &amp;lt;- gsub(“,”“,house_tag)house_tag &amp;lt;- gsub(”“,”“,house_tag)#sizehouse_size&amp;lt;-str_split_fixed(house_tag,” +\|“,7)[,1]#housetype &amp;lt;- gsub(”“,”“,housetype)#locationhouse_loc&amp;lt;-str_split_fixed(house_tag,” +\|“,7)[,3]#price_unithouse_unitprice&amp;lt;-str_split_fixed(house_tag,” +\|“,7)[,4]house_unitprice &amp;lt;- gsub(”.单价“,”“,house_unitprice)house_unitprice &amp;lt;- gsub(”元/平“,”“,house_unitprice)#mhouse_m&amp;lt;-str_split_fixed(house_tag,” +\|“,7)[,2]house_m &amp;lt;- gsub(”平.“,”“,house_m)#levelhouse_level &amp;lt;- str_split_fixed(house_tag,” +\|“,7)[,2]house_level &amp;lt;- gsub(”.区/“,”“,house_level)house_level &amp;lt;- gsub(”层.“,”&#34;,house_level)
-house&amp;lt;-data_frame(house_p,house_size,house_loc,house_unitprice,house_m,house_level)house_inf&amp;lt;-rbind(house_inf,house)
-}
-#将数据写入csv文档write.csv(house_inf,file=“house_inf.csv”)
-</description>
+      <description>library(rvest)## 载入需要的程辑包：xml2url&amp;lt;-&amp;#39;http://www.gov.cn/guowuyuan/2019-03/16/content_5374314.htm&amp;#39;web&amp;lt;-read_html(url,encoding=&amp;quot;utf-8&amp;quot;) position&amp;lt;-web %&amp;gt;% html_nodes(&amp;quot;div.pages_content&amp;quot;) %&amp;gt;% html_text()library(jiebaR)## 载入需要的程辑包：jiebaRDengine_s&amp;lt;-worker(stop_word = &amp;quot;stopwords.txt&amp;quot;)seg&amp;lt;-segment(position,engine_s)f&amp;lt;-freq(seg)f&amp;lt;-f[order(f[2],decreasing=TRUE),] library(wordcloud2)f&amp;lt;-f[1:150,] wordcloud2(f, size = 0.8 ,shape=&amp;#39;star&amp;#39;) {&#34;x&#34;:{&#34;word&#34;:[&#34;发展&#34;,&#34;改革&#34;,&#34;推进&#34;,&#34;建设&#34;,&#34;新&#34;,&#34;企业&#34;,&#34;经济&#34;,&#34;完善&#34;,&#34;加快&#34;,&#34;创新&#34;,&#34;推动&#34;,&#34;支持&#34;,&#34;政府&#34;,&#34;政策&#34;,&#34;中国&#34;,&#34;深化&#34;,&#34;服务&#34;,&#34;就业&#34;,&#34;社会&#34;,&#34;提高&#34;,&#34;工作&#34;,&#34;群众&#34;,&#34;市场&#34;,&#34;保障&#34;,&#34;实施&#34;,&#34;稳&#34;,&#34;风险&#34;,&#34;机制&#34;,&#34;增长&#34;,&#34;加大&#34;,&#34;地方&#34;,&#34;持续&#34;,&#34;落实&#34;,&#34;健全&#34;,&#34;投资&#34;,&#34;优化&#34;,&#34;教育&#34;,&#34;体系&#34;,&#34;国际&#34;,&#34;稳定&#34;,&#34;制度&#34;,&#34;治理&#34;,&#34;国家&#34;,&#34;监管&#34;,&#34;我国&#34;,&#34;农村&#34;,&#34;提升&#34;,&#34;降低&#34;,&#34;合作&#34;,&#34;力度&#34;,&#34;增强&#34;,&#34;脱贫&#34;,&#34;防治&#34;,&#34;融资&#34;,&#34;结构&#34;,&#34;环境&#34;,&#34;各类&#34;,&#34;强化&#34;,&#34;增加&#34;,&#34;解决&#34;,&#34;活力&#34;,&#34;重点&#34;,&#34;科技&#34;,&#34;特色&#34;,&#34;领域&#34;,&#34;习近平&#34;,&#34;城镇&#34;,&#34;依法&#34;,&#34;国内&#34;,&#34;精神&#34;,&#34;开放&#34;,&#34;中&#34;,&#34;发挥&#34;,&#34;消费&#34;,&#34;基础&#34;,&#34;做好&#34;,&#34;金融&#34;,&#34;保护&#34;,&#34;减税&#34;,&#34;农业&#34;,&#34;核心&#34;,&#34;举措&#34;,&#34;小微&#34;,&#34;市场主体&#34;,&#34;确保&#34;,&#34;能力&#34;,&#34;污染&#34;,&#34;一批&#34;,&#34;收费&#34;,&#34;中央&#34;,&#34;代表&#34;,&#34;财政&#34;,&#34;健康&#34;,&#34;生态&#34;,&#34;综合&#34;,&#34;水平&#34;,&#34;下降&#34;,&#34;市场化&#34;,&#34;压力&#34;,&#34;关系&#34;,&#34;生产&#34;,&#34;成果&#34;,&#34;制造业&#34;,&#34;万亿元&#34;,&#34;战略&#34;,&#34;困难&#34;,&#34;负担&#34;,&#34;更好&#34;,&#34;目标&#34;,&#34;乡村&#34;,&#34;行业&#34;,&#34;主体&#34;,&#34;贯彻&#34;,&#34;维护&#34;,&#34;作用&#34;,&#34;方式&#34;,&#34;经济社会&#34;,&#34;贫困地区&#34;,&#34;进一步&#34;,&#34;资金&#34;,&#34;地区&#34;,&#34;专项&#34;,&#34;改造&#34;,&#34;攻坚&#34;,&#34;绿色&#34;,&#34;全国&#34;,&#34;生活&#34;,&#34;扎实&#34;,&#34;审批&#34;,&#34;坚定&#34;,&#34;标准&#34;,&#34;民族&#34;,&#34;养老&#34;,&#34;医保&#34;,&#34;建成&#34;,&#34;互联网&#34;,&#34;比例&#34;,&#34;改革开放&#34;,&#34;大幅&#34;,&#34;时代&#34;,&#34;基层&#34;,&#34;改善&#34;,&#34;结构性&#34;,&#34;人口&#34;,&#34;挑战&#34;,&#34;培育&#34;,&#34;力量&#34;,&#34;民生&#34;,&#34;构建&#34;,&#34;高质量&#34;],&#34;freq&#34;:[134,92,59,56,51,51,46,43,43,41,40,40,39,38,36,34,31,29,27,27,25,24,24,23,23,23,22,22,22,21,20,20,19,19,19,19,18,18,18,18,18,17,17,17,17,17,17,16,16,16,16,15,14,14,14,14,14,14,14,14,13,13,13,13,13,13,13,13,12,12,12,12,12,12,12,12,12,12,12,12,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,10,10,10,10,10,10,10,10,10,10,10,10,10,10,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8],&#34;fontFamily&#34;:&#34;Segoe UI&#34;,&#34;fontWeight&#34;:&#34;bold&#34;,&#34;color&#34;:&#34;random-dark&#34;,&#34;minSize&#34;:0,&#34;weightFactor&#34;:1.07462686567164,&#34;backgroundColor&#34;:&#34;white&#34;,&#34;gridSize&#34;:0,&#34;minRotation&#34;:-0.785398163397448,&#34;maxRotation&#34;:0.785398163397448,&#34;shuffle&#34;:true,&#34;rotateRatio&#34;:0.4,&#34;shape&#34;:&#34;star&#34;,&#34;ellipticity&#34;:0.65,&#34;figBase64&#34;:null,&#34;hover&#34;:null},&#34;evals&#34;:[],&#34;jsHooks&#34;:{&#34;render&#34;:[{&#34;code&#34;:&#34;function(el,x){\n console.log(123);\n if(!iii){\n window.location.reload();\n iii = False;\n\n }\n }&#34;,&#34;data&#34;:null}]}}</description>
     </item>
     
     <item>

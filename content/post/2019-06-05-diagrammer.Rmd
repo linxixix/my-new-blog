@@ -1,0 +1,49 @@
+---
+title: DiagrammeR
+author: linxi
+date: '2019-06-05'
+slug: diagrammer
+categories:
+  - R
+tags: []
+---
+## R语言绘制流程图
+R语言为用户提供了大量的绘图函数，包括基于图形语法的ggplot2和传统绘图包等。
+
+### R语言中基于低水平绘图设备（仅能绘制基本图形）
+```{r}
+library(grid)
+grid.roundrect(width=0.25, height=0.25)
+grid.text("四川大学")
+pushViewport(viewport(width=0.25,height=0.125))
+grid.roundrect()
+grid.text("四川大学", x=unit(3,"mm"), y=unit(2,"lines"), just="left")
+grid.text("公共管理学院", x=unit(2,"mm"), y=unit(0.5,"lines"), just="left")
+popViewport()
+```
+```{r}
+```
+
+### 通过R建立流程图
+```{r}
+library(DiagrammeR)
+grViz("digraph flowchart {
+# node definitions with substituted label text
+node [fontname = Helvetica, shape = rectangle] 
+tab1 [label = '@@1']
+tab2 [label = '@@2']
+tab3 [label = '@@3']
+tab4 [label = '@@4']
+tab5 [label = '@@5']
+# edge definitions with the node IDs
+tab1 -> tab2 -> tab3 -> tab4 -> tab5;
+}
+[1]: '七点半起床'
+[2]: '八点出门吃早餐'
+[3]: '八点二十到图书馆开始学习'
+[4]: '十二点离开图书馆吃饭并午休半小时'
+[5]: '下午继续学习'
+")
+
+```
+
