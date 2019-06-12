@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>函数查询</title>
+      <link>/2019/06/12/hanshu/</link>
+      <pubDate>Wed, 12 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/12/hanshu/</guid>
+      <description>豆瓣电影评分查询library(RCurl)## 载入需要的程辑包：bitopslibrary(XML)movieScore &amp;lt;- function(x) {stopifnot(is.character(x))search &amp;lt;- getForm(&amp;quot;https://movie.douban.com/&amp;quot;, search_text = x)searchweb &amp;lt;- htmlParse(search)resnodes &amp;lt;- getNodeSet(searchweb, &amp;quot;//div[@id=&amp;#39;wrapper&amp;#39;]//table[1]//a&amp;quot;)if (is.null(resnodes)) return(NULL) else resurl &amp;lt;- xmlGetAttr(resnodes[[1]], name = &amp;quot;href&amp;quot;)resweb &amp;lt;- getURL(resurl, .encoding = &amp;quot;UTF-8&amp;quot;)content &amp;lt;- htmlParse(resweb, encoding = &amp;quot;UTF-8&amp;quot;)resnodes &amp;lt;- getNodeSet(content, &amp;quot;//div[@id=&amp;#39;interest_sectl&amp;#39;]//p[@class=&amp;#39;rating_self clearfix&amp;#39;]//strong&amp;quot;)namenodes &amp;lt;- getNodeSet(content, &amp;quot;//div[@id=&amp;#39;content&amp;#39;]//h1//span&amp;quot;)score &amp;lt;- xmlValue(resnodes[[1]])name &amp;lt;- xmlValue(namenodes[[1]])return(list(name = name, score = score))}movieScore(&amp;quot;调音师&amp;quot;)## NULL</description>
+    </item>
+    
+    <item>
       <title>爬虫豆瓣</title>
       <link>/2019/06/06/douban/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>

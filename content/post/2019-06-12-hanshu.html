@@ -1,0 +1,35 @@
+---
+title: 函数查询
+author: linxi
+date: '2019-06-12'
+slug: hanshu
+categories:
+  - R
+tags: []
+---
+
+
+
+<div id="section" class="section level2">
+<h2>豆瓣电影评分查询</h2>
+<pre class="r"><code>library(RCurl)</code></pre>
+<pre><code>## 载入需要的程辑包：bitops</code></pre>
+<pre class="r"><code>library(XML)
+movieScore &lt;- function(x) {
+    stopifnot(is.character(x))
+    search &lt;- getForm(&quot;https://movie.douban.com/&quot;, search_text = x)
+    searchweb &lt;- htmlParse(search)
+    resnodes &lt;- getNodeSet(searchweb, &quot;//div[@id=&#39;wrapper&#39;]//table[1]//a&quot;)
+    if (is.null(resnodes)) 
+        return(NULL) else resurl &lt;- xmlGetAttr(resnodes[[1]], name = &quot;href&quot;)
+    resweb &lt;- getURL(resurl, .encoding = &quot;UTF-8&quot;)
+    content &lt;- htmlParse(resweb, encoding = &quot;UTF-8&quot;)
+    resnodes &lt;- getNodeSet(content, &quot;//div[@id=&#39;interest_sectl&#39;]//p[@class=&#39;rating_self clearfix&#39;]//strong&quot;)
+    namenodes &lt;- getNodeSet(content, &quot;//div[@id=&#39;content&#39;]//h1//span&quot;)
+    score &lt;- xmlValue(resnodes[[1]])
+    name &lt;- xmlValue(namenodes[[1]])
+    return(list(name = name, score = score))
+}
+movieScore(&quot;调音师&quot;)</code></pre>
+<pre><code>## NULL</code></pre>
+</div>

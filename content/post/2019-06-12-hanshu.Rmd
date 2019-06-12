@@ -1,0 +1,31 @@
+---
+title: 函数查询
+author: linxi
+date: '2019-06-12'
+slug: hanshu
+categories:
+  - R
+tags: []
+---
+## 豆瓣电影评分查询
+```{r}
+library(RCurl)
+library(XML)
+movieScore <- function(x) {
+    stopifnot(is.character(x))
+    search <- getForm("https://movie.douban.com/", search_text = x)
+    searchweb <- htmlParse(search)
+    resnodes <- getNodeSet(searchweb, "//div[@id='wrapper']//table[1]//a")
+    if (is.null(resnodes)) 
+        return(NULL) else resurl <- xmlGetAttr(resnodes[[1]], name = "href")
+    resweb <- getURL(resurl, .encoding = "UTF-8")
+    content <- htmlParse(resweb, encoding = "UTF-8")
+    resnodes <- getNodeSet(content, "//div[@id='interest_sectl']//p[@class='rating_self clearfix']//strong")
+    namenodes <- getNodeSet(content, "//div[@id='content']//h1//span")
+    score <- xmlValue(resnodes[[1]])
+    name <- xmlValue(namenodes[[1]])
+    return(list(name = name, score = score))
+}
+movieScore("调音师")
+```
+
