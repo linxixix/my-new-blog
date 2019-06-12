@@ -19,13 +19,40 @@ ggplot(airquality,aes(Wind,Temp)) + geom_point(col="red",alpha=0.4,size=4)
 ```{r}
 ggplot(airquality,aes(Wind,Temp)) + geom_point(aes(color=factor(Month)),alpha=0.4,size=5)
 ```
-```
+
 ```{r}
-library("ggplot2")#调用包
-UG=read.table("clipboard",header=T);
-head(UG)
-p=ggplot(UG,aes(score,income),color=sex)+geom_point()
-UG.c=transform(UG,income=income*1.5)#将收入放大1.5倍，其他不变
-p %+%UG.c
+### Load the package or install if not present
+if (!require("RColorBrewer")) {
+install.packages("RColorBrewer")
+library(RColorBrewer)
+}
+
+### Set the display a 1 by 1 grid
+par(mfrow=c(1,1))
+
+### Show all the colour schemes available
+display.brewer.all()
+
 ```
+
+### 柱状图
+```{r}
+name <- c("多","中","少","中","少")
+data <- data.frame(name) 
+library(ggplot2)
+ggplot(data,aes(x=name)) + geom_bar()
+p1 <- ggplot(data,aes(x=name)) + geom_bar(width=0.7)
+p1 + xlab("种类") + ylab("") + 
+  ggtitle("运动情况")
+```
+
+### 点图
+```{r}
+data1 <- data.frame(a=1:3,b=3:1)
+ggplot(data1,aes(a,b)) + geom_point()
+```
+
+
+
+
 

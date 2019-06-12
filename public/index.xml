@@ -17,8 +17,7 @@
       <pubDate>Wed, 12 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/06/12/ggplot2/</guid>
-      <description>做散点图，红色大小为4.使用了两层。library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlangggplot(airquality,aes(Wind,Temp)) + geom_point(col=&amp;quot;red&amp;quot;,alpha=0.4,size=4)每个月份对应一个颜色，数据对应到颜色上面，需要加上aes函数ggplot(airquality,aes(Wind,Temp)) + geom_point(aes(color=factor(Month)),alpha=0.4,size=5)```
-</description>
+      <description>做散点图，红色大小为4.使用了两层。library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlangggplot(airquality,aes(Wind,Temp)) + geom_point(col=&amp;quot;red&amp;quot;,alpha=0.4,size=4)每个月份对应一个颜色，数据对应到颜色上面，需要加上aes函数ggplot(airquality,aes(Wind,Temp)) + geom_point(aes(color=factor(Month)),alpha=0.4,size=5)### Load the package or install if not presentif (!require(&amp;quot;RColorBrewer&amp;quot;)) {install.packages(&amp;quot;RColorBrewer&amp;quot;)library(RColorBrewer)}## 载入需要的程辑包：RColorBrewer### Set the display a 1 by 1 gridpar(mfrow=c(1,1))### Show all the colour schemes availabledisplay.brewer.all()柱状图name &amp;lt;- c(&amp;quot;多&amp;quot;,&amp;quot;中&amp;quot;,&amp;quot;少&amp;quot;,&amp;quot;中&amp;quot;,&amp;quot;少&amp;quot;)data &amp;lt;- data.</description>
     </item>
     
     <item>
