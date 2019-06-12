@@ -1,5 +1,5 @@
 ---
-title: douban
+title: 爬虫豆瓣
 author: linxi
 date: '2019-06-06'
 slug: douban
@@ -10,6 +10,111 @@ tags: []
 
 
 
-<p>```</p>
+<div id="section" class="section level2">
+<h2>爬虫豆瓣电影排行榜</h2>
+<div id="section-1" class="section level3">
+<h3>获取网页数据</h3>
 <pre class="r"><code>library(xml2)
-library(rvest)</code></pre>
+library(rvest)
+url &lt;- &#39;https://movie.douban.com/chart&#39;
+webpage &lt;- read_html(url)
+#获取网页数据
+name_data_html&lt;-html_nodes(webpage,&#39;.pl2 a&#39;)
+name_data&lt;-html_text(name_data_html)
+name_data</code></pre>
+<pre><code>##  [1] &quot;\n                        绿皮书\n                        / 绿簿旅友(港) / 幸福绿皮书(台)\n                    &quot;         
+##  [2] &quot;\n                        我们\n                        / 我们·异(港)\n                    &quot;                             
+##  [3] &quot;\n                        行骗天下：运势篇\n                        / 信用诈欺师JP：运势篇\n                    &quot;        
+##  [4] &quot;\n                        风中有朵雨做的云\n                        / 地狱恋人 / 地狱情人\n                    &quot;         
+##  [5] &quot;\n                        比悲伤更悲伤的故事\n                        / More Than Blue\n                    &quot;            
+##  [6] &quot;\n                        疾速备战\n                        / 疾速追杀3 / 疾速逃亡\n                    &quot;                
+##  [7] &quot;\n                        驯龙高手3\n                        / 驯龙记3(港) / 驯龙高手3：隐秘的世界\n                    &quot;
+##  [8] &quot;\n                        如影随心\n                        / 可遇可求 / Lost in love\n                    &quot;             
+##  [9] &quot;\n                        撞死了一只羊\n                        / Jinpa\n                    &quot;                           
+## [10] &quot;\n                        过春天\n                        / 分隔线 / 佩佩\n                    &quot;</code></pre>
+<pre class="r"><code>name_data&lt;-strsplit(name_data,split = &#39;\n&#39;)
+name_data</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;&quot;                                                       
+## [2] &quot;                        绿皮书&quot;                         
+## [3] &quot;                        / 绿簿旅友(港) / 幸福绿皮书(台)&quot;
+## [4] &quot;                    &quot;                                   
+## 
+## [[2]]
+## [1] &quot;&quot;                                     
+## [2] &quot;                        我们&quot;         
+## [3] &quot;                        / 我们·异(港)&quot;
+## [4] &quot;                    &quot;                 
+## 
+## [[3]]
+## [1] &quot;&quot;                                              
+## [2] &quot;                        行骗天下：运势篇&quot;      
+## [3] &quot;                        / 信用诈欺师JP：运势篇&quot;
+## [4] &quot;                    &quot;                          
+## 
+## [[4]]
+## [1] &quot;&quot;                                             
+## [2] &quot;                        风中有朵雨做的云&quot;     
+## [3] &quot;                        / 地狱恋人 / 地狱情人&quot;
+## [4] &quot;                    &quot;                         
+## 
+## [[5]]
+## [1] &quot;&quot;                                          
+## [2] &quot;                        比悲伤更悲伤的故事&quot;
+## [3] &quot;                        / More Than Blue&quot;  
+## [4] &quot;                    &quot;                      
+## 
+## [[6]]
+## [1] &quot;&quot;                                              
+## [2] &quot;                        疾速备战&quot;              
+## [3] &quot;                        / 疾速追杀3 / 疾速逃亡&quot;
+## [4] &quot;                    &quot;                          
+## 
+## [[7]]
+## [1] &quot;&quot;                                                             
+## [2] &quot;                        驯龙高手3&quot;                            
+## [3] &quot;                        / 驯龙记3(港) / 驯龙高手3：隐秘的世界&quot;
+## [4] &quot;                    &quot;                                         
+## 
+## [[8]]
+## [1] &quot;&quot;                                                 
+## [2] &quot;                        如影随心&quot;                 
+## [3] &quot;                        / 可遇可求 / Lost in love&quot;
+## [4] &quot;                    &quot;                             
+## 
+## [[9]]
+## [1] &quot;&quot;                                    
+## [2] &quot;                        撞死了一只羊&quot;
+## [3] &quot;                        / Jinpa&quot;     
+## [4] &quot;                    &quot;                
+## 
+## [[10]]
+## [1] &quot;&quot;                                       
+## [2] &quot;                        过春天&quot;         
+## [3] &quot;                        / 分隔线 / 佩佩&quot;
+## [4] &quot;                    &quot;</code></pre>
+<pre class="r"><code>name_data&lt;-sapply(name_data,function(x) x[2])
+name_data</code></pre>
+<pre><code>##  [1] &quot;                        绿皮书&quot;            
+##  [2] &quot;                        我们&quot;              
+##  [3] &quot;                        行骗天下：运势篇&quot;  
+##  [4] &quot;                        风中有朵雨做的云&quot;  
+##  [5] &quot;                        比悲伤更悲伤的故事&quot;
+##  [6] &quot;                        疾速备战&quot;          
+##  [7] &quot;                        驯龙高手3&quot;         
+##  [8] &quot;                        如影随心&quot;          
+##  [9] &quot;                        撞死了一只羊&quot;      
+## [10] &quot;                        过春天&quot;</code></pre>
+<pre class="r"><code>name_data&lt;-gsub(&#39; &#39;,&#39;&#39;,name_data) </code></pre>
+</div>
+<div id="section-2" class="section level3">
+<h3>获取评分数据</h3>
+<pre class="r"><code>score_data_html&lt;-html_nodes(webpage,&#39;.rating_nums&#39;)
+score_data&lt;-html_text(score_data_html)
+score_data&lt;-as.numeric(score_data)</code></pre>
+</div>
+<div id="section-3" class="section level3">
+<h3>结果</h3>
+<pre class="r"><code>movie&lt;-data.frame(name=name_data,score=score_data)</code></pre>
+</div>
+</div>

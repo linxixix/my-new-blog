@@ -1,5 +1,5 @@
 ---
-title: douban
+title: 爬虫豆瓣
 author: linxi
 date: '2019-06-06'
 slug: douban
@@ -7,9 +7,36 @@ categories:
   - R
 tags: []
 ---
-```
+## 爬虫豆瓣电影排行榜
+
+### 获取网页数据
+
 ```{r}
 library(xml2)
 library(rvest)
+url <- 'https://movie.douban.com/chart'
+webpage <- read_html(url)
+#获取网页数据
+name_data_html<-html_nodes(webpage,'.pl2 a')
+name_data<-html_text(name_data_html)
+name_data
+name_data<-strsplit(name_data,split = '\n')
+name_data
+name_data<-sapply(name_data,function(x) x[2])
+name_data
+name_data<-gsub(' ','',name_data) 
 ```
+
+### 获取评分数据
+```{r}
+score_data_html<-html_nodes(webpage,'.rating_nums')
+score_data<-html_text(score_data_html)
+score_data<-as.numeric(score_data)
+```
+
+### 结果
+```{r}
+movie<-data.frame(name=name_data,score=score_data)
+```
+
 

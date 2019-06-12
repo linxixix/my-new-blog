@@ -21,22 +21,21 @@
     </item>
     
     <item>
-      <title>douban</title>
-      <link>/2019/06/06/douban/</link>
-      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/06/06/douban/</guid>
-      <description>```
-library(xml2)library(rvest)</description>
-    </item>
-    
-    <item>
       <title>web-crawler 2.0</title>
       <link>/2019/06/06/web-crawler-2-0/</link>
       <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/06/06/web-crawler-2-0/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>爬虫豆瓣</title>
+      <link>/2019/06/06/douban/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/06/douban/</guid>
+      <description>爬虫豆瓣电影排行榜获取网页数据library(xml2)library(rvest)url &amp;lt;- &amp;#39;https://movie.douban.com/chart&amp;#39;webpage &amp;lt;- read_html(url)#获取网页数据name_data_html&amp;lt;-html_nodes(webpage,&amp;#39;.pl2 a&amp;#39;)name_data&amp;lt;-html_text(name_data_html)name_data## [1] &amp;quot;\n 绿皮书\n / 绿簿旅友(港) / 幸福绿皮书(台)\n &amp;quot; ## [2] &amp;quot;\n 我们\n / 我们·异(港)\n &amp;quot; ## [3] &amp;quot;\n 行骗天下：运势篇\n / 信用诈欺师JP：运势篇\n &amp;quot; ## [4] &amp;quot;\n 风中有朵雨做的云\n / 地狱恋人 / 地狱情人\n &amp;quot; ## [5] &amp;quot;\n 比悲伤更悲伤的故事\n / More Than Blue\n &amp;quot; ## [6] &amp;quot;\n 疾速备战\n / 疾速追杀3 / 疾速逃亡\n &amp;quot; ## [7] &amp;quot;\n 驯龙高手3\n / 驯龙记3(港) / 驯龙高手3：隐秘的世界\n &amp;quot;## [8] &amp;quot;\n 如影随心\n / 可遇可求 / Lost in love\n &amp;quot; ## [9] &amp;quot;\n 撞死了一只羊\n / Jinpa\n &amp;quot; ## [10] &amp;quot;\n 过春天\n / 分隔线 / 佩佩\n &amp;quot;name_data&amp;lt;-strsplit(name_data,split = &amp;#39;\n&amp;#39;)name_data## [[1]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 绿皮书&amp;quot; ## [3] &amp;quot; / 绿簿旅友(港) / 幸福绿皮书(台)&amp;quot;## [4] &amp;quot; &amp;quot; ## ## [[2]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 我们&amp;quot; ## [3] &amp;quot; / 我们·异(港)&amp;quot;## [4] &amp;quot; &amp;quot; ## ## [[3]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 行骗天下：运势篇&amp;quot; ## [3] &amp;quot; / 信用诈欺师JP：运势篇&amp;quot;## [4] &amp;quot; &amp;quot; ## ## [[4]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 风中有朵雨做的云&amp;quot; ## [3] &amp;quot; / 地狱恋人 / 地狱情人&amp;quot;## [4] &amp;quot; &amp;quot; ## ## [[5]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 比悲伤更悲伤的故事&amp;quot;## [3] &amp;quot; / More Than Blue&amp;quot; ## [4] &amp;quot; &amp;quot; ## ## [[6]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 疾速备战&amp;quot; ## [3] &amp;quot; / 疾速追杀3 / 疾速逃亡&amp;quot;## [4] &amp;quot; &amp;quot; ## ## [[7]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 驯龙高手3&amp;quot; ## [3] &amp;quot; / 驯龙记3(港) / 驯龙高手3：隐秘的世界&amp;quot;## [4] &amp;quot; &amp;quot; ## ## [[8]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 如影随心&amp;quot; ## [3] &amp;quot; / 可遇可求 / Lost in love&amp;quot;## [4] &amp;quot; &amp;quot; ## ## [[9]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 撞死了一只羊&amp;quot;## [3] &amp;quot; / Jinpa&amp;quot; ## [4] &amp;quot; &amp;quot; ## ## [[10]]## [1] &amp;quot;&amp;quot; ## [2] &amp;quot; 过春天&amp;quot; ## [3] &amp;quot; / 分隔线 / 佩佩&amp;quot;## [4] &amp;quot; &amp;quot;name_data&amp;lt;-sapply(name_data,function(x) x[2])name_data## [1] &amp;quot; 绿皮书&amp;quot; ## [2] &amp;quot; 我们&amp;quot; ## [3] &amp;quot; 行骗天下：运势篇&amp;quot; ## [4] &amp;quot; 风中有朵雨做的云&amp;quot; ## [5] &amp;quot; 比悲伤更悲伤的故事&amp;quot;## [6] &amp;quot; 疾速备战&amp;quot; ## [7] &amp;quot; 驯龙高手3&amp;quot; ## [8] &amp;quot; 如影随心&amp;quot; ## [9] &amp;quot; 撞死了一只羊&amp;quot; ## [10] &amp;quot; 过春天&amp;quot;name_data&amp;lt;-gsub(&amp;#39; &amp;#39;,&amp;#39;&amp;#39;,name_data) 获取评分数据score_data_html&amp;lt;-html_nodes(webpage,&amp;#39;.</description>
     </item>
     
     <item>
