@@ -6,10 +6,39 @@
     <description>Recent content on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ggplot2</title>
+      <link>/2019/06/12/ggplot2/</link>
+      <pubDate>Wed, 12 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/12/ggplot2/</guid>
+      <description>做散点图，红色大小为4.使用了两层。library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlangggplot(airquality,aes(Wind,Temp)) + geom_point(col=&amp;quot;red&amp;quot;,alpha=0.4,size=4)每个月份对应一个颜色，数据对应到颜色上面，需要加上aes函数ggplot(airquality,aes(Wind,Temp)) + geom_point(aes(color=factor(Month)),alpha=0.4,size=5)```
+</description>
+    </item>
+    
+    <item>
+      <title>douban</title>
+      <link>/2019/06/06/douban/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/06/douban/</guid>
+      <description>```
+library(xml2)library(rvest)</description>
+    </item>
+    
+    <item>
+      <title>web-crawler 2.0</title>
+      <link>/2019/06/06/web-crawler-2-0/</link>
+      <pubDate>Thu, 06 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/06/web-crawler-2-0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>DiagrammeR</title>
@@ -19,15 +48,6 @@
       <guid>/2019/06/05/diagrammer/</guid>
       <description>R语言绘制流程图R语言为用户提供了大量的绘图函数，包括基于图形语法的ggplot2和传统绘图包等。
 R语言中基于低水平绘图设备（仅能绘制基本图形）library(grid)grid.roundrect(width=0.25, height=0.25)grid.text(&amp;quot;四川大学&amp;quot;)pushViewport(viewport(width=0.25,height=0.125))grid.roundrect()grid.text(&amp;quot;四川大学&amp;quot;, x=unit(3,&amp;quot;mm&amp;quot;), y=unit(2,&amp;quot;lines&amp;quot;), just=&amp;quot;left&amp;quot;)grid.text(&amp;quot;公共管理学院&amp;quot;, x=unit(2,&amp;quot;mm&amp;quot;), y=unit(0.5,&amp;quot;lines&amp;quot;), just=&amp;quot;left&amp;quot;)popViewport()通过R建立流程图library(DiagrammeR)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlanggrViz(&amp;quot;digraph flowchart {# node definitions with substituted label textnode [fontname = Helvetica, shape = rectangle] tab1 [label = &amp;#39;@@1&amp;#39;]tab2 [label = &amp;#39;@@2&amp;#39;]tab3 [label = &amp;#39;@@3&amp;#39;]tab4 [label = &amp;#39;@@4&amp;#39;]tab5 [label = &amp;#39;@@5&amp;#39;]# edge definitions with the node IDstab1 -&amp;gt; tab2 -&amp;gt; tab3 -&amp;gt; tab4 -&amp;gt; tab5;}[1]: &amp;#39;七点半起床&amp;#39;[2]: &amp;#39;八点出门吃早餐&amp;#39;[3]: &amp;#39;八点二十到图书馆开始学习&amp;#39;[4]: &amp;#39;十二点离开图书馆吃饭并午休半小时&amp;#39;[5]: &amp;#39;下午继续学习&amp;#39;&amp;quot;){&#34;</description>
-    </item>
-    
-    <item>
-      <title>ggplot2</title>
-      <link>/2019/06/05/ggplot2/</link>
-      <pubDate>Wed, 05 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/06/05/ggplot2/</guid>
-      <description>做散点图，红色大小为4.使用了两层。library(ggplot2)## Registered S3 methods overwritten by &amp;#39;ggplot2&amp;#39;:## method from ## [.quosures rlang## c.quosures rlang## print.quosures rlangggplot(airquality,aes(Wind,Temp)) + geom_point(col=&amp;quot;red&amp;quot;,alpha=0.4,size=4)每个月份对应一个颜色，数据对应到颜色上面，需要加上aes函数ggplot(airquality,aes(Wind,Temp)) + geom_point(aes(color=factor(Month)),alpha=0.4,size=5)</description>
     </item>
     
     <item>
