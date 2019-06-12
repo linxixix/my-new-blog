@@ -7,6 +7,9 @@ categories:
   - R
 tags: []
 ---
+
+
+
 ## 做散点图，红色大小为4.使用了两层。
 ```{r}
 library(ggplot2)
@@ -18,4 +21,11 @@ ggplot(airquality,aes(Wind,Temp)) + geom_point(col="red",alpha=0.4,size=4)
 ```{r}
 ggplot(airquality,aes(Wind,Temp)) + geom_point(aes(color=factor(Month)),alpha=0.4,size=5)
 ```
+
+
+
+
+
+
+
 

@@ -1,0 +1,15 @@
+---
+title: douban
+author: linxi
+date: '2019-06-06'
+slug: douban
+categories:
+  - R
+tags: []
+---
+```
+```{r}
+library(xml2)
+library(rvest)
+```
+
