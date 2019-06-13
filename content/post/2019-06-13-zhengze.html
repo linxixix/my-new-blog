@@ -10,11 +10,11 @@ tags: []
 
 
 
-<div id="section" class="section level1">
-<h1>正则表达式</h1>
+<div id="section" class="section level2">
+<h2>正则表达式</h2>
 <p>正则表达式（Regular Expression、regexp）是指一种用来描述一定数量文本的模式。</p>
-<div id="section-1" class="section level2">
-<h2>正则表达式是用于描述/匹配一个文本集合的表达式</h2>
+<div id="section-1" class="section level3">
+<h3>正则表达式是用于描述/匹配一个文本集合的表达式</h3>
 <ol style="list-style-type: decimal">
 <li>所有英文字母、数字和很多可显示的字符本身就是正则表达式，用于匹配它们自己。比如 ‘a’ 就是匹配字母 ‘a’ 的正则表达式</li>
 <li>一些特殊的字符在正则表达式中不在用来描述它自身，它们在正则表达式中已经被“转义”，这些字符称为“元字符”。</li>
@@ -24,16 +24,16 @@ tags: []
 <li>正则表达式符号运算顺序：圆括号括起来的表达式最优先，然后是表示重复次数的操作（即：* + {} ），接下来是连接运算（其实就是几个字符放在一起，如abc），最后是表示可选项的运算（|）。所以 ‘foot|bar’ 可以匹配’foot‘或者’bar‘，但是 ’foot|ba{2}r’匹配的是’foot‘或者’baar‘。</li>
 </ol>
 </div>
-<div id="section-2" class="section level2">
-<h2>字符串拆分</h2>
+<div id="section-2" class="section level3">
+<h3>字符串拆分</h3>
 <pre class="r"><code>text &lt;- &quot;Sorry  lily\amy love!&quot;
 
 strsplit(text, &#39; &#39;)</code></pre>
 <pre><code>## [[1]]
 ## [1] &quot;Sorry&quot;    &quot;&quot;         &quot;lily\amy&quot; &quot;love!&quot;</code></pre>
 </div>
-<div id="section-3" class="section level2">
-<h2>字符串替换</h2>
+<div id="section-3" class="section level3">
+<h3>字符串替换</h3>
 <pre class="r"><code>text </code></pre>
 <pre><code>## [1] &quot;Sorry  lily\amy love!&quot;</code></pre>
 <pre class="r"><code>&quot;Sorry  lily\amy love!&quot; </code></pre>
@@ -41,8 +41,8 @@ strsplit(text, &#39; &#39;)</code></pre>
 <pre class="r"><code>sub(pattern=&quot;lily&quot;, replacement=&quot;coco&quot;, text) </code></pre>
 <pre><code>## [1] &quot;Sorry  coco\amy love!&quot;</code></pre>
 </div>
-<div id="section-4" class="section level2">
-<h2>字符串提取</h2>
+<div id="section-4" class="section level3">
+<h3>字符串提取</h3>
 <pre class="r"><code>x &lt;- &quot;闪烁的液晶屏幕
 像蔚蓝色的泓湖
 一阵拂面微风
