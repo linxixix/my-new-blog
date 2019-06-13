@@ -1,0 +1,12 @@
+---
+title: 优雅的用r写作😊
+author: linxi
+date: '2019-06-13'
+slug: write
+categories:
+  - R
+tags: []
+---
+## R markdown
+R Markdown是通过R语言和markdown标记语法来制作动态文档的一种文件格式以“.Rmd”结尾。其中，markdown是一种「标记」语法，用来代替常见的排版格式，使用诸如 * # 等标记符号生成极富表现力的文档（本文也是用markdown写的）。R Markdown 将markdown和 代码（支持R、SQL、Python等多种语言）整合后可以生成多种静态和动态格式。比如： HTML, PDF,MS Word, Beamer, HTML5 slides, Tufte-style handouts, books, dashboards, shiny applications, scientific articles, websites等。
+https://www.jianshu.com/p/ef071e86e0cc
