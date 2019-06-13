@@ -4,26 +4,31 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/2019/06/13/zhengze/</loc>
+    <lastmod>2019-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -32,17 +37,7 @@
   </url>
   
   <url>
-    <loc>/2019/06/12/time/</loc>
-    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/2019/06/12/hanshu/</loc>
-    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2019/06/12/time-time/</loc>
     <lastmod>2019-06-12T00:00:00+00:00</lastmod>
   </url>
   
