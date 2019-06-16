@@ -1,0 +1,10 @@
+---
+title: fx
+author: linx
+date: '2019-06-16'
+slug: fx
+categories:
+  - R
+tags: []
+---
+R语言提供了大量的包为用户解决各方面的问题，同时，R语言中允许用户编写自己的函数来解决实际问题。
