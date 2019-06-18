@@ -1,0 +1,62 @@
+---
+title: fx
+author: linx
+date: '2019-06-16'
+slug: fx
+categories:
+  - R
+tags: []
+---
+
+
+
+<p>R语言提供了大量的包为用户解决各方面的问题，同时，R语言中允许用户编写自己的函数来解决实际问题。</p>
+<div id="section" class="section level3">
+<h3>今天是几号</h3>
+<pre class="r"><code>Sys.Date()</code></pre>
+<pre><code>## [1] &quot;2019-06-18&quot;</code></pre>
+</div>
+<div id="section-1" class="section level3">
+<h3>现在的时间</h3>
+<pre class="r"><code> date()</code></pre>
+<pre><code>## [1] &quot;Tue Jun 18 17:53:02 2019&quot;</code></pre>
+</div>
+<div id="xxxxxx" class="section level3">
+<h3>现在是xx年xx月xx日</h3>
+<pre class="r"><code>today &lt;- Sys.Date()
+format(today, &quot;%Y年%m月%d日&quot;)</code></pre>
+<pre><code>## [1] &quot;2019年06月18日&quot;</code></pre>
+</div>
+<div id="section-2" class="section level3">
+<h3>现在是 年 月 日 时 分 秒</h3>
+<pre class="r"><code>time &lt;- Sys.time()
+format(time, &quot;%Y年%m月%d日%H时%M分%S秒&quot;)</code></pre>
+<pre><code>## [1] &quot;2019年06月18日17时53分02秒&quot;</code></pre>
+</div>
+<div id="section-3" class="section level3">
+<h3>日期差</h3>
+<div id="section-4" class="section level4">
+<h4>新中国已经成立多少天</h4>
+<pre class="r"><code> today &lt;- Sys.Date()
+gtd &lt;- as.Date(&quot;1949-10-01&quot;)   
+today - gtd</code></pre>
+<pre><code>## Time difference of 25462 days</code></pre>
+</div>
+</div>
+<div id="section-5" class="section level3">
+<h3>其他函数</h3>
+<pre class="r"><code>mydate &lt;- Sys.Date() #今天的日期
+mydate</code></pre>
+<pre><code>## [1] &quot;2019-06-18&quot;</code></pre>
+<pre class="r"><code>weekdays(mydate) #今天星期几</code></pre>
+<pre><code>## [1] &quot;星期二&quot;</code></pre>
+<pre class="r"><code>months(mydate) #今天是几月</code></pre>
+<pre><code>## [1] &quot;六月&quot;</code></pre>
+</div>
+<div id="section-6" class="section level3">
+<h3>2019年高考已经结束多少天</h3>
+<pre class="r"><code> now &lt;- Sys.time()
+myTime &lt;- strptime(&quot;2019-06-08 17:30:00&quot;, format = &quot;%Y-%m-%d %H:%M:%S&quot;)
+difftime(now, myTime)</code></pre>
+<pre><code>## Time difference of 10.016 days</code></pre>
+</div>

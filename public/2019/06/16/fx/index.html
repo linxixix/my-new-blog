@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.4" />
+
+
+<title>fx - A Hugo website</title>
+<meta property="og:title" content="fx - A Hugo website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">fx</h1>
+
+    
+    <span class="article-date">2019-06-16</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>R语言提供了大量的包为用户解决各方面的问题，同时，R语言中允许用户编写自己的函数来解决实际问题。</p>
+<div id="section" class="section level3">
+<h3>今天是几号</h3>
+<pre class="r"><code>Sys.Date()</code></pre>
+<pre><code>## [1] &quot;2019-06-18&quot;</code></pre>
+</div>
+<div id="section-1" class="section level3">
+<h3>现在的时间</h3>
+<pre class="r"><code> date()</code></pre>
+<pre><code>## [1] &quot;Tue Jun 18 17:53:02 2019&quot;</code></pre>
+</div>
+<div id="xxxxxx" class="section level3">
+<h3>现在是xx年xx月xx日</h3>
+<pre class="r"><code>today &lt;- Sys.Date()
+format(today, &quot;%Y年%m月%d日&quot;)</code></pre>
+<pre><code>## [1] &quot;2019年06月18日&quot;</code></pre>
+</div>
+<div id="section-2" class="section level3">
+<h3>现在是 年 月 日 时 分 秒</h3>
+<pre class="r"><code>time &lt;- Sys.time()
+format(time, &quot;%Y年%m月%d日%H时%M分%S秒&quot;)</code></pre>
+<pre><code>## [1] &quot;2019年06月18日17时53分02秒&quot;</code></pre>
+</div>
+<div id="section-3" class="section level3">
+<h3>日期差</h3>
+<div id="section-4" class="section level4">
+<h4>新中国已经成立多少天</h4>
+<pre class="r"><code> today &lt;- Sys.Date()
+gtd &lt;- as.Date(&quot;1949-10-01&quot;)   
+today - gtd</code></pre>
+<pre><code>## Time difference of 25462 days</code></pre>
+</div>
+</div>
+<div id="section-5" class="section level3">
+<h3>其他函数</h3>
+<pre class="r"><code>mydate &lt;- Sys.Date() #今天的日期
+mydate</code></pre>
+<pre><code>## [1] &quot;2019-06-18&quot;</code></pre>
+<pre class="r"><code>weekdays(mydate) #今天星期几</code></pre>
+<pre><code>## [1] &quot;星期二&quot;</code></pre>
+<pre class="r"><code>months(mydate) #今天是几月</code></pre>
+<pre><code>## [1] &quot;六月&quot;</code></pre>
+</div>
+<div id="section-6" class="section level3">
+<h3>2019年高考已经结束多少天</h3>
+<pre class="r"><code> now &lt;- Sys.time()
+myTime &lt;- strptime(&quot;2019-06-08 17:30:00&quot;, format = &quot;%Y-%m-%d %H:%M:%S&quot;)
+difftime(now, myTime)</code></pre>
+<pre><code>## Time difference of 10.016 days</code></pre>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+

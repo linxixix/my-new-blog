@@ -8,3 +8,46 @@ categories:
 tags: []
 ---
 R语言提供了大量的包为用户解决各方面的问题，同时，R语言中允许用户编写自己的函数来解决实际问题。
+
+### 今天是几号
+```{r}
+Sys.Date()
+```
+### 现在的时间
+```{r}
+ date()
+```
+### 现在是xx年xx月xx日
+```{r}
+today <- Sys.Date()
+format(today, "%Y年%m月%d日")
+```
+### 现在是 年 月 日 时 分 秒
+```{r}
+time <- Sys.time()
+format(time, "%Y年%m月%d日%H时%M分%S秒")
+```
+### 日期差
+#### 新中国已经成立多少天
+```{r}
+ today <- Sys.Date()
+gtd <- as.Date("1949-10-01")   
+today - gtd
+```
+### 其他函数
+```{r}
+mydate <- Sys.Date() #今天的日期
+mydate
+
+weekdays(mydate) #今天星期几
+
+months(mydate) #今天是几月
+
+```
+### 2019年高考已经结束多少天
+```{r}
+ now <- Sys.time()
+myTime <- strptime("2019-06-08 17:30:00", format = "%Y-%m-%d %H:%M:%S")
+difftime(now, myTime)
+```
+
